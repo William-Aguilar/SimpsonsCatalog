@@ -4,6 +4,7 @@ import com.example.simpsoncatalog.domain.model.SimpsonCharacter
 import com.example.simpsoncatalog.domain.repository.CharactersRepository
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.impl.annotations.RelaxedMockK
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
@@ -24,7 +25,7 @@ class GetCharactersUseCaseTest {
     }
 
     @Test
-    fun `when repository return an characters list then show up them`() = runBlocking {
+    fun `when API return an characters list then show up them`() = runBlocking {
         // Given
         val expectedCharacters = listOf(
             SimpsonCharacter(
@@ -53,5 +54,15 @@ class GetCharactersUseCaseTest {
         val result = getCharacters()
         // Then
         assertEquals(expectedCharacters, result)
+    }
+
+    @Test
+    fun `when API doesn't return nothing then try to get values from DB`() = runBlocking {
+        // Given
+        coEvery { repository.getCharacters() } returns emptyList()
+        // When
+        getCharacters()
+        // Then
+        coVerify(exactly = 1) { repository.getCharactersFromDB() }
     }
 }
