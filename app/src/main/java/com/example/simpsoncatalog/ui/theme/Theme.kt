@@ -1,4 +1,4 @@
-package com.example.simpsoncatalog.view.theme
+package com.example.simpsoncatalog.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

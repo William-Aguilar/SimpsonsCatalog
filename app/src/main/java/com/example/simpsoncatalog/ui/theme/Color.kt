@@ -1,4 +1,4 @@
-package com.example.simpsoncatalog.view.theme
+package com.example.simpsoncatalog.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

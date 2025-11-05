@@ -1,4 +1,4 @@
-package com.example.simpsoncatalog.domain.model
+package com.example.simpsoncatalog.domain.entity
 
 data class SimpsonCharacter(
     val id: Int,
