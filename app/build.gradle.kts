@@ -24,6 +24,11 @@ android {
     }
 
     buildTypes {
+        debug {
+            isMinifyEnabled = false
+            versionNameSuffix = "-dev"
+            buildConfigField("String", "BASE_URL", "\"https://thesimpsonsapi.com/api/\"")
+        }
         release {
             isMinifyEnabled = false
             proguardFiles(
@@ -43,6 +48,10 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
+    }
+    hilt {
+        enableAggregatingTask = true
     }
 }
 
@@ -59,6 +68,8 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.paging)
+    implementation(libs.paging.compose)
 
     //Navigation
     implementation(libs.androidx.navigation.compose)

@@ -6,7 +6,7 @@ data class SimpsonCharacter(
     val name: String,
     val gender: String,
     val occupation: String,
-    val portrait_path: String,
+    val portraitPath: String,
     val phrases: List<String>,
     val status: String
 )

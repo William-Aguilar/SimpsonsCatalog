@@ -1,5 +1,6 @@
 package com.example.simpsoncatalog.data.di
 
+import com.example.simpsoncatalog.BuildConfig
 import com.example.simpsoncatalog.data.datasource.api.ApiServices
 import com.example.simpsoncatalog.data.repository.CharacterRepositoryImpl
 import com.example.simpsoncatalog.domain.repository.CharactersRepository
@@ -40,7 +41,7 @@ object DataModule {
     @Provides
     fun provideRetrofit(json: Json, client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://api.github.com/")
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
             .client(client)
             .build()

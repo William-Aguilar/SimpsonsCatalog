@@ -8,9 +8,9 @@ data class PaginationResponse<T>(
     @SerialName("count")
     val count: Int,
     @SerialName("next")
-    val next: String?,
+        val next: Int?,
     @SerialName("prev")
-    val prev: String?,
+    val prev: Int?,
     @SerialName("pages")
     val pages: Int,
     @SerialName("results")
